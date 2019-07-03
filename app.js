@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const Post = require('./database/models/Post')
 
-mongoose.connect('mongodb://localhost:27017/nodejs-test', {
+mongoose.connect('mongodb://localhost:27017/nodejs', {
     useNewUrlParser: true
 })
 
@@ -17,10 +17,10 @@ app.use(bodyParser.urlencoded({
     extended: true
 }))
 
-app.get('/web', async (req, res) => {
+app.get('/web', async(req, res) => {
     const posts = await Post.find({})
-    console.log(posts)
-    res.render('index', {
+    //console.log(posts)
+    res.render('index',{
         posts : posts
     })
 })
