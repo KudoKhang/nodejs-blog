@@ -20,13 +20,8 @@
         <div class="container">
           <div class="row">
              <div class="col-md-8 offset-md-2">
-                 <form action="/posts/store" method="POST">
-                  <div class="control-group">
-                    <div class="form-group floating-label-form-group controls">
-                     <label>Username</label>
-                     <input type="text" name="username" placeholder="Username" class="form-control">
-                    </div>
-                  </div>
+                 <form action="/posts/store" method="POST" encType="multipart/form-data">
+                  
 									 <div class="control-group">
 										 <div class="form-group floating-label-form-group controls">
 											<label>Title</label>
@@ -35,17 +30,22 @@
 									 </div>
 									 <div class="control-group">
 											<div class="form-group floating-label-form-group controls">
-											 <label>Description</label>
-											 <input type="text" name="description" placeholder="Description" class="form-control">
+											 <label>subtitle</label>
+											 <input type="text" name="subtitle" placeholder="subtitle" class="form-control">
 											</div>
 									</div>
 								  <div class="control-group">
 												<div class="form-group floating-label-form-group controls">
 												 <label>Content</label>
-												<textarea name="content" id="" cols="30" rows="10" placeholder="Content" class="form-control"></textarea>
+												<textarea id="content" name="content" id="" cols="30" rows="10" placeholder="Content" class="form-control"></textarea>
 												</div>
 									</div>	
-									<br>
+                  <br>
+
+                  <div class="form-group mt-5">
+                    <input type="file" name="image" class="form-control-file">
+                  </div>
+
 									<div class="form-group text-center">
 										<button class="btn btn-primary"> Create New Post</button>
 									</div>
@@ -56,6 +56,18 @@
 
 @endsection
 
+@section('styles')
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
+  
+@endsection
 
+@section('script')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
+
+<script>
+  $('#content').summernote()
+</script>
+
+@endsection
 
  
